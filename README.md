@@ -3,7 +3,7 @@
 This is the first assignment for the module 4: Deep learning and artificial intelligence 
 
 For this assignment we are a group composed of Raiyan Alam, and Kasper Haurum. 
-This assignment is focused on constructing a neural network, more precisely a ANN network with 5 different variations whereas these variations are different epochs, learning rates, amount of hidden layers used, and inputs.
+This assignment is focused on constructing a neural network, more precisely a neural network with 5 different variations whereas these variations are different epochs, learning rates, amount of hidden layers used, and inputs.
 
 For this assignment we decided to pick the HR-data from the 1st semester, where upon the selected variables used from the HR-Dataset was the following:
 
