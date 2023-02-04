@@ -13,15 +13,13 @@ For this assignment we decided to pick the HR-data from the 1st semester, where 
  4   TotalWorkingYears  
  5   YearsAtCompany     
 
-Afterwards we had selected the variables we wanted to use for this assignment, we then selected two features to be used as inputs in the neural network, which were "MonthlyIncome", and "TotalWorkingYears'"
-
 Before we went ahead, we checked for NaN/Null values, which we then removed as a part of the preliminary cleanup of the data. Likewise we also converted all values to float as we saw some of them were configured as objects. As "Attrition" was a binary value, thereby a yes/no, we turned it into a numerical [0-1] value instead.
 
 Moving on, we ran the two selected input variables through a scaler ("MinMaxScaler"), and afterwards used the panda function pd.concat to set the new dataframe.
 
 We detected some NaN/Null values after this was accomplished, so we once again removed these values to do a further cleanup.
 
-Setting the tensors to be "MonthlyIncome", and "TotalWorkingYears'" with the inputs of data_x.size, and data_y.size, we moved ahead to start setting up the neural network.
+Setting the tensors to be 'Age', and 'YearsAtCompany' with the inputs of data_x.size, and data_y.size being 'Attrition', we moved ahead to start setting up the neural network.
 
 For the first ANN network, we picked a single neuron and 2 inputs to see if everything ran according to plan, which it did. This lead to the attached illustration showing the epochs, and the MSE (Mean squared error value). 
 
