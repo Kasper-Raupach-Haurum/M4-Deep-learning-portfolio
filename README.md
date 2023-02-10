@@ -1,5 +1,8 @@
 # M4-Deep-learning-portfolio
 
+
+# Assignment 1: Build, train, and evaluate a neural network with Pytorch.
+
 This is the first assignment for the module 4: Deep learning and artificial intelligence 
 
 For this assignment we are a group composed of Raiyan Alam, and Kasper Haurum. 
@@ -30,4 +33,12 @@ The next operation we ran was a neural network with 2 hidden layers and 2 inputs
 The last neural network we tested was the same configuration of 2 hidden layers, and 2 inputs, however with a learning rate of 0.01, compared to 0.001 previously, and a epoch amount of 100, compared to the previously epoch amount of 50.
 
 This final neural network lead to a final loss score of 0.12653271853923798, but however made a sudden spike of MSE when it arrived to the 3 epoch, which could be due to the learning rate being too high.
+
+
+# Assignment 2: Build, train, and evaluate 2 special types of networks neural network (CNN & LSTM) with Pytorch
+
+
+
+
+
 
