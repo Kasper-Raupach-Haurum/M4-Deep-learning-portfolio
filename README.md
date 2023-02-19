@@ -70,7 +70,32 @@ Running the model this time it had a much more curved line when displaying the M
 When tracking it against the real trading of Tesla stock this time, it would seem it followed the trading more accurately, which may due to the fact it had a Test MSE 0.0067035122723343495 score as compared against the former model's Test MSE score of 0.00702314528987687, thus having a slight improvement over the other model.
 
 
+# Assignment 3: Create something cool using SBERT and semantic search
 
+In this assignment we want to showcase just what you can accomplish by using SBERT and transformers within the area of computer vision, more specifically, we want to create a Gradio app that can display the technology in action by detecting food from pictures. This is known as a zero shot classification where images will be classifed upon the labels, which then using SBERT will be assigned based on the consine similarity based on the input (the picture)
 
+First of all, like the rest of the assignments we will be relying on PyTorch to setup the torchvision, and the tensors themselves when doing the preposition on the dataset. Likewise we setup a test/train on a 80/20 split to use it to train the model we wish to create.
 
+When setting up a SBERT transformer it is nessecary in this case to asssign biases, and weights, however we ran with a default setting to best maintain some level of stability on the model, likewise we froze the layers to ensure they remained the same before we we going to run any operations on them using the following command:
+
+the for param in effnetb2.parameters():
+    param.requires_grad = False
+
+What comes next is setting the dropout function in the neural network to drop the inputs that does not met the thresshold, and set the features being 3 as we have three categories of food for the model, that being pizza, steak and sushi. Afterwards we created the optimizer, and crossentropy, and finally the loss score to measure the loss of MSE.
+
+As seen on the illustration showcasing the train_loss, and test_loss, they follow a similar pattern of having a lower MSE by the accumulating epochs series runs, which goes the same for accuracy, although the train_accuracy being lower from the start as it contains the data which has not been trained, but eventually leads on a similar accuracy of 0.85% in comparision to the test_accuracy of 0.95%
+
+Afterwards we save the model, and run a summary to get the following stats of the model:
+
+7705221 total parameters, and {'test_loss': 0.28086441457271577, 'test_acc': 0.96875. Overall this seems very promising with the amount of parameters involved, and the test acurracy being as high as it is.
+
+Next up we setup the ViT computer vision library, and run the same commands as seen above before we saved the model, and we arrive at the following when applying the ViT:
+
+test_loss': 0.06418211054988206,
+ 'test_acc': 0.984659090909091,
+ 'number_of_parameters': 85800963,
+ 
+ As seen there is a much lower test_loss in comparison to the EfficientNetB2 model, and with a higher test accuracy with it being 0.98%. Another note is the MB size, with the size being (MB)': 29 before, and now  'model_size (MB)': 327}.
+ 
+ Finally the Gradio app is deployed at the bottom of the colab notebook, where there has been 3 randonmly selected pictures picked for the testing of application itself.
 
