@@ -99,3 +99,20 @@ test_loss': 0.06418211054988206,
  
  Finally the Gradio app is deployed at the bottom of the colab notebook, where there has been 3 randonmly selected pictures picked for the testing of application itself.
 
+
+# Assignment 4: Build an exciting and perhaps also fun application using techniques learned in this module
+
+In this assignment we want to fine-tune a DETR object-detection model to detect facemasks, coveralls, face-shields, gloves, or goggles from the CPPE-5 dataset. In our code we use the Hugging Face Transformers and Datasets libraries to train the model. We then preprocesse the dataset, defines utility functions, removes some images from the training set, and loads an image processing checkpoint from the Hugging Face model hub. 
+
+In our model training section, the model is loaded using the AutoModelForObjectDetection class from the Transformers library.
+Then, the TrainingArguments class from the Transformers library is imported to set up configuration settings for training the model. The output_dir specifies the directory where the trained model will be saved, and the other settings are set up to specify the hyperparameters and other configuration settings for training.
+
+The Trainer class from the Transformers library is then used to start training the model. The model, training_args, data_collator, train_dataset, and tokenizer are specified as input arguments to the Trainer class. Finally, the trainer.push_to_hub() function pushes the trained model and associated files to the Hugging Face model hub.
+
+Finally in the fine-tuning of our model, we first load a pre-trained image processing model and a pre-trained object detection model using the AutoImageProcessor, which is done using the from_pretrained() method of the AutoImageProcessor and AutoModelForObjectDetection classes respectively. These are the same used in the "KasperRH/Raiyan_Kasper_Model"
+
+Next, the input image is processed using the image_processor by converting it into a tensor using the image_processor's __call__() method and passing in the image and specifying return_tensors="pt". This tensor is then fed into the pre-trained object detection model using the model() function call, which returns a dictionary of outputs. After that, it calculates the sizes of the input images and stores them as a tenso
+
+The object detection results are obtained using the post_process_object_detection() method of the AutoImageProcessor class, which takes in the model outputs, threshold for object detection, and the target sizes of the input images as inputs, while the bounding boxes are drawn around the detected objects in the input image using the ImageDraw module, with their corresponding labels. The coordinates of the bounding boxes are rounded to two decimal places using the round() function
+
+As we had difficulty in using a pipeline to the fine-tuned model in the context of our Huggingface Space when using Streamlit and GRadio, we decided to make a appendix collab that manually wrote the application coding for a GRadio interface that could offer a interactive engagement of our model. 
